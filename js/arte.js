@@ -27,11 +27,11 @@ window.Arte = (function () {
 
   /* planta baixa em SVG a partir da lista de cômodos [nome, x, y, w, h] */
   function planta(p) {
-    var cores = ["#efe6d2", "#e6dcc3", "#dfe8dc", "#f1ead9"], g = "";
+    var cores = ["#e4e9ff", "#d5dcff", "#d3f4fa", "#e9e5ff"], g = "";
     p.comodos.forEach(function (c, i) {
       var cx = c[1] + c[3] / 2, cy = c[2] + c[4] / 2, pequeno = c[3] < 28 || c[4] < 16;
-      g += '<rect x="' + c[1] + '" y="' + c[2] + '" width="' + c[3] + '" height="' + c[4] + '" fill="' + cores[i % cores.length] + '" stroke="#1f3b2d" stroke-width="1"/>' +
-        '<text x="' + cx + '" y="' + (cy + 1) + '" text-anchor="middle" font-size="' + (pequeno ? 2.9 : 3.5) + '" fill="#1d2420" font-family="system-ui,sans-serif" font-weight="600">' + esc(c[0]) + "</text>";
+      g += '<rect x="' + c[1] + '" y="' + c[2] + '" width="' + c[3] + '" height="' + c[4] + '" fill="' + cores[i % cores.length] + '" stroke="#3b4aa8" stroke-width="1"/>' +
+        '<text x="' + cx + '" y="' + (cy + 1) + '" text-anchor="middle" font-size="' + (pequeno ? 2.9 : 3.5) + '" fill="#0b1233" font-family="system-ui,sans-serif" font-weight="600">' + esc(c[0]) + "</text>";
     });
     return '<svg viewBox="-2 -2 104 ' + (p.alt + 4) + '" role="img" aria-label="Planta do apartamento de ' + esc(p.nome) + ', ' + p.area + ' metros quadrados">' + g + "</svg>";
   }

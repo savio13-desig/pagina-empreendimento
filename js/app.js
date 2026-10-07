@@ -16,7 +16,8 @@
     $("#h-nome").textContent = E.nome;
     $("#h-slogan").textContent = E.slogan;
     $("#h-numeros").innerHTML = E.numeros.map(function (n) { return "<div><b>" + esc(n.v) + "</b><span>" + esc(n.l) + "</span></div>"; }).join("");
-    $("#h-arte").innerHTML = Arte.fachada();
+    $("#h-arte").innerHTML = '<img src="img/fachada-1024.webp" srcset="img/fachada-640.webp 640w, img/fachada-1024.webp 1024w" sizes="(min-width: 860px) 45vw, 100vw" width="1024" height="572" fetchpriority="high" alt="Ilustração da fachada do ' + esc(E.nome) + ' ao entardecer">';
+    $("#g-lista").innerHTML = E.galeria.map(function (g) { return '<button class="foto" type="button" data-lb="' + g.id + '" aria-label="Ampliar: ' + esc(g.t) + '"><img src="img/' + g.id + '-480.webp" width="480" height="' + (g.id === "piscina" || g.id === "cobertura" ? 268 : 359) + '" loading="lazy" alt="Ilustração: ' + esc(g.t) + '"><span>' + esc(g.t) + "</span></button>"; }).join("");
     $("#s-lead").textContent = E.tipo + " " + E.nome + ", em " + E.bairro + ". " + E.numeros[0].v + " dormitórios, " + E.numeros[1].v + " e entrega prevista para " + E.entrega + ".";
     $("#s-dif").innerHTML = E.diferenciais.map(function (d) { return '<div class="cartao"><span class="rombo" aria-hidden="true">◆</span><h3>' + esc(d.t) + "</h3><p>" + esc(d.d) + "</p></div>"; }).join("");
     $("#s-lazer").innerHTML = E.lazer.map(function (l) { return "<li>" + esc(l) + "</li>"; }).join("");
@@ -33,7 +34,7 @@
   function plantas() {
     $("#p-abas").innerHTML = E.plantas.map(function (p) { return '<button role="tab" data-pl="' + p.id + '" aria-selected="' + (p.id === atual) + '">' + esc(p.nome) + " · " + p.area + " m²</button>"; }).join("");
     var p = planta(atual);
-    $("#p-corpo").innerHTML = '<div class="planta-arte">' + Arte.planta(p) + '</div><div class="ficha"><h3>' + esc(p.nome) + '</h3><dl><dt>Área privativa</dt><dd>' + p.area + " m²</dd><dt>Dormitórios</dt><dd>" + p.dorm + " (" + p.suites + (p.suites === 1 ? " suíte" : " suítes") + ")</dd><dt>Vagas</dt><dd>" + p.vagas + "</dd></dl>" +
+    $("#p-corpo").innerHTML = '<div class="planta-arte">' + Arte.planta(p) + '</div><div class="ficha">' + (p.foto ? '<img class="ficha-foto" src="img/' + p.foto + '-480.webp" width="480" height="359" loading="lazy" alt="Ilustração de ambiente da planta ' + esc(p.nome) + '">' : "") + '<h3>' + esc(p.nome) + '</h3><dl><dt>Área privativa</dt><dd>' + p.area + " m²</dd><dt>Dormitórios</dt><dd>" + p.dorm + " (" + p.suites + (p.suites === 1 ? " suíte" : " suítes") + ")</dd><dt>Vagas</dt><dd>" + p.vagas + "</dd></dl>" +
       '<p class="nota" style="margin:0">A partir de</p><p class="preco" style="margin:0 0 var(--e2)">' + brl(p.preco) + '</p><div class="grupo-btn"><button class="btn btn-verde" data-quero="' + p.id + '" type="button">Quero esta planta</button></div><p class="nota">Planta ilustrativa. Mobiliário e cotas sem valor contratual.</p></div>';
   }
 
@@ -112,6 +113,19 @@
       nota = "Simulação: planta " + p.nome + ", entrada " + ent + "%, " + n + " meses.";
       if ($("#f-int")) $("#f-int").value = p.id; location.hash = "#contato";
     }
+  });
+
+  /* ---------- galeria ampliada ---------- */
+  function ampliar(id) {
+    var g = E.galeria.filter(function (x) { return x.id === id; })[0];
+    $("#lb-img").src = "img/" + id + "-1024.webp"; $("#lb-img").alt = "Ilustração: " + g.t; $("#lb-leg").textContent = g.t + " · imagem ilustrativa";
+    $("#lb").showModal();
+  }
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("button");
+    if (b && b.dataset.lb) ampliar(b.dataset.lb);
+    else if (b && b.id === "lb-x") $("#lb").close();
+    else if (e.target.id === "lb") $("#lb").close();
   });
 
   topo(); plantas(); tour(); simulador(); formulario();

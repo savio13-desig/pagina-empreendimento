@@ -14,7 +14,7 @@
 <nav class="nav" aria-label="Principal"><div class="nav-int">
   <a class="marca" href="#topo" id="nav-marca"></a>
   <ul>
-    <li><a class="l" href="#sobre">O projeto</a></li><li><a class="l" href="#plantas">Plantas</a></li><li><a class="l" href="#tour">Tour 3D</a></li>
+    <li><a class="l" href="#sobre">O projeto</a></li><li><a class="l" href="#galeria">Imagens</a></li><li><a class="l" href="#plantas">Plantas</a></li><li><a class="l" href="#tour">Tour 3D</a></li>
     <li><a class="l" href="#simulador">Simulador</a></li><li><a class="l" href="#local">Localização</a></li><li><a class="l" href="#contato">Contato</a></li>
   </ul>
 </div></nav>
@@ -36,6 +36,12 @@
     <p class="lead" id="s-lead"></p>
     <div class="grade tres" id="s-dif"></div>
     <h3 style="margin:var(--e6) 0 var(--e2);font-size:1.5rem">Lazer completo</h3><ul class="chips" id="s-lazer"></ul>
+  </div></section>
+
+  <section id="galeria"><div class="container">
+    <p class="sobretitulo">Imagens</p><h2>Como será viver aqui.</h2>
+    <p class="lead">Imagens ilustrativas do empreendimento. Toque para ampliar.</p>
+    <div class="galeria" id="g-lista"></div>
   </div></section>
 
   <section id="plantas" class="fundo-claro"><div class="container">
@@ -90,6 +96,7 @@
   <p id="f-nome"></p>
   <p>Imagens e plantas ilustrativas, sujeitas a alterações. Valores, metragens e condições de exemplo, sem caráter de proposta. Amostra de demonstração criada pela <a href="https://novapicks.website">novapicks</a>.</p>
 </div></footer>
+<dialog id="lb" aria-label="Imagem ampliada"><button class="x" id="lb-x" type="button" aria-label="Fechar">×</button><img id="lb-img" alt=""><p id="lb-leg"></p></dialog>
 <a class="btn btn-ouro flutuante" id="zap" target="_blank" rel="noopener">WhatsApp</a>
 
 <script src="js/dados.js"></script>

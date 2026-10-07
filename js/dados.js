@@ -34,15 +34,23 @@ window.EMPREENDIMENTO = {
     { n: "Avenida Paulista", m: "12 min de carro" },
     { n: "Hospital", m: "10 min de carro" }
   ],
+  /* imagens ilustrativas (render) em img/<id>-480.webp e -1024.webp */
+  galeria: [
+    { id: "sala", t: "Sala integrada com varanda gourmet" },
+    { id: "suite", t: "Suíte" },
+    { id: "piscina", t: "Piscina e deck" },
+    { id: "cobertura", t: "Terraço da cobertura" },
+    { id: "coworking", t: "Coworking" }
+  ],
   /* cômodos em coordenadas de um quadro 100 de largura (x, y, w, h) */
   plantas: [
-    { id: "2d", nome: "2 dormitórios", area: 58, dorm: 2, suites: 1, vagas: 1, preco: 520000, alt: 70, comodos: [
+    { id: "2d", foto: "suite", nome: "2 dormitórios", area: 58, dorm: 2, suites: 1, vagas: 1, preco: 520000, alt: 70, comodos: [
       ["Varanda gourmet", 0, 0, 55, 12], ["Sala", 0, 12, 55, 30], ["Cozinha", 0, 42, 30, 28], ["Banho social", 30, 42, 25, 14], ["Serviço", 30, 56, 25, 14],
       ["Suíte", 55, 0, 45, 35], ["Dormitório", 55, 35, 45, 35]] },
-    { id: "3d", nome: "3 dormitórios", area: 77, dorm: 3, suites: 1, vagas: 2, preco: 690000, alt: 80, comodos: [
+    { id: "3d", foto: "sala", nome: "3 dormitórios", area: 77, dorm: 3, suites: 1, vagas: 2, preco: 690000, alt: 80, comodos: [
       ["Varanda gourmet", 0, 0, 60, 12], ["Sala", 0, 12, 60, 30], ["Cozinha", 0, 42, 30, 24], ["Serviço", 0, 66, 30, 14], ["Banho social", 30, 42, 30, 18], ["Hall", 30, 60, 30, 20],
       ["Suíte", 60, 0, 40, 30], ["Dormitório 2", 60, 30, 40, 25], ["Dormitório 3", 60, 55, 40, 25]] },
-    { id: "cob", nome: "Cobertura duplex", area: 120, dorm: 3, suites: 3, vagas: 3, preco: 1150000, alt: 80, comodos: [
+    { id: "cob", foto: "cobertura", nome: "Cobertura duplex", area: 120, dorm: 3, suites: 3, vagas: 3, preco: 1150000, alt: 80, comodos: [
       ["Living", 0, 0, 60, 35], ["Terraço com piscina", 0, 35, 60, 25], ["Cozinha", 0, 60, 35, 20], ["Lavabo", 35, 60, 25, 20],
       ["Suíte master", 60, 0, 40, 30], ["Suíte 2", 60, 30, 40, 25], ["Suíte 3", 60, 55, 40, 25]] }
   ],

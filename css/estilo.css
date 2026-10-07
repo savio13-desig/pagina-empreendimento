@@ -161,3 +161,22 @@ footer a { color: #fff; }
 .placa svg.qr { width: 100%; display: block; }
 @media print { body { background: #fff; } .nao-imprimir, .selo-demo, .nav, .flutuante { display: none !important; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+
+/* ===== Imagens ===== */
+.hero-arte { background: var(--verde-2); }
+.hero-arte img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% center; }
+.galeria { display: grid; gap: var(--e2); grid-template-columns: 1fr 1fr; }
+@media (min-width: 860px) { .galeria { grid-template-columns: repeat(3, 1fr); } }
+.foto { position: relative; padding: 0; border: 0; border-radius: var(--raio); overflow: hidden; cursor: pointer; background: var(--verde); aspect-ratio: 4 / 3; display: block; }
+.foto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+.foto:hover img { transform: scale(1.04); }
+.foto span { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 14px 12px; text-align: left; color: #fff; font-weight: 700; background: linear-gradient(0deg, rgba(0,0,0,.7), transparent); }
+.ficha-foto { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 12px; display: block; margin-bottom: var(--e2); }
+dialog#lb { width: min(960px, 96vw); max-height: 94vh; padding: 12px; border: 0; border-radius: var(--raio); background: var(--verde); color: var(--creme); position: relative; }
+dialog#lb::backdrop { background: rgba(0,0,0,.8); }
+#lb img { width: 100%; height: auto; max-height: 78vh; object-fit: contain; display: block; border-radius: 10px; }
+#lb p { margin: 8px 4px 0; font-size: .9rem; }
+.x { position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(0,0,0,.6); color: #fff; font-size: 1.6rem; line-height: 1; cursor: pointer; z-index: 2; }
+.foto-prop { margin: 0 0 var(--e4); }
+.foto-prop img { width: 100%; height: auto; border-radius: var(--raio); display: block; }
+.foto-prop figcaption { font-size: .8rem; color: var(--texto-suave); margin-top: 6px; }

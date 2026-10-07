@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Aurora Park: apartamentos de 2 e 3 dormitórios na Vila Mariana, com tour 3D, plantas e simulador.">
+<meta name="theme-color" content="#1f3b2d">
+<title>Aurora Park · Lançamento na Vila Mariana</title>
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<div class="selo-demo">Amostra de demonstração · novapicks · <a href="apresentacao.html">proposta</a> · <a href="leads.html" target="_blank" rel="noopener">painel de contatos</a> · <a href="qr.html">QR do stand</a></div>
+<nav class="nav" aria-label="Principal"><div class="nav-int">
+  <a class="marca" href="#topo" id="nav-marca"></a>
+  <ul>
+    <li><a class="l" href="#sobre">O projeto</a></li><li><a class="l" href="#plantas">Plantas</a></li><li><a class="l" href="#tour">Tour 3D</a></li>
+    <li><a class="l" href="#simulador">Simulador</a></li><li><a class="l" href="#local">Localização</a></li><li><a class="l" href="#contato">Contato</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero" id="topo"><div class="hero-int">
+  <div class="hero-txt">
+    <span class="etiqueta" id="h-status"></span>
+    <h1 id="h-nome"></h1>
+    <p class="slogan" id="h-slogan"></p>
+    <div class="grupo-btn"><a class="btn btn-ouro" href="#contato">Quero conhecer</a><a class="btn btn-contorno" href="#tour">Entrar no tour 3D</a></div>
+    <div class="numeros" id="h-numeros"></div>
+  </div>
+  <div class="hero-arte" id="h-arte"></div>
+</div></header>
+
+<main id="conteudo" tabindex="-1">
+  <section id="sobre"><div class="container">
+    <p class="sobretitulo">O projeto</p><h2>Pensado para morar bem e valorizar.</h2>
+    <p class="lead" id="s-lead"></p>
+    <div class="grade tres" id="s-dif"></div>
+    <h3 style="margin:var(--e6) 0 var(--e2);font-size:1.5rem">Lazer completo</h3><ul class="chips" id="s-lazer"></ul>
+  </div></section>
+
+  <section id="plantas" class="fundo-claro"><div class="container">
+    <p class="sobretitulo">Plantas</p><h2>Escolha o seu tamanho.</h2>
+    <div class="abas" role="tablist" aria-label="Plantas" id="p-abas"></div>
+    <div class="planta" id="p-corpo" role="tabpanel" aria-live="polite"></div>
+  </div></section>
+
+  <section id="tour"><div class="container">
+    <p class="sobretitulo">Tour 3D</p><h2>Ande pelo apartamento antes de ele existir.</h2>
+    <p class="lead">Passeie pelos ambientes, troque acabamentos e móveis e veja a luz do dia, da tarde e da noite. Tour de exemplo do apartamento de 77 m².</p>
+    <div class="palco" id="t-palco"><div class="chamada"><h3>Tour 3D interativo</h3><p>Abre no celular e no computador, sem instalar nada.</p><button class="btn btn-ouro" id="t-abrir" type="button">Entrar no tour</button></div></div>
+    <p class="nota"><a id="t-link" target="_blank" rel="noopener" style="color:var(--verde)">Abrir o tour em tela cheia</a></p>
+  </div></section>
+
+  <section id="video" class="fundo-claro" hidden><div class="container">
+    <p class="sobretitulo">Vídeo</p><h2>Conheça o empreendimento.</h2>
+    <div class="palco" id="v-palco"></div>
+  </div></section>
+
+  <section id="simulador"><div class="container">
+    <p class="sobretitulo">Simulador</p><h2>Quanto fica a parcela?</h2>
+    <p class="lead">Uma estimativa rápida para você se planejar. Os valores finais dependem de análise de crédito.</p>
+    <div class="duas">
+      <form id="sim" novalidate>
+        <label for="s-planta">Planta</label><select id="s-planta"></select>
+        <label for="s-entrada">Entrada: <span id="s-ent-v"></span></label><input type="range" id="s-entrada">
+        <label for="s-prazo">Prazo do financiamento</label><select id="s-prazo"></select>
+      </form>
+      <div>
+        <div class="resultado" aria-live="polite" id="s-res"></div>
+        <p class="nota">Simulação ilustrativa pela tabela Price, sem seguros e taxas. Não é proposta de financiamento.</p>
+        <p><button class="btn btn-verde" id="s-quero" type="button">Quero falar sobre esta simulação</button></p>
+      </div>
+    </div>
+  </div></section>
+
+  <section id="local" class="fundo-claro"><div class="container">
+    <p class="sobretitulo">Localização</p><h2 id="l-titulo"></h2>
+    <p class="lead" id="l-end"></p>
+    <div id="l-lista"></div>
+  </div></section>
+
+  <section id="contato"><div class="container"><div class="duas">
+    <div><p class="sobretitulo">Contato</p><h2>Receba a tabela e agende uma visita.</h2><p class="lead">Deixe seus dados e o nosso time retorna pelo WhatsApp ou ligação, no horário que você preferir.</p>
+      <p class="nota" id="c-corretor"></p></div>
+    <div id="c-area"></div>
+  </div></div></section>
+</main>
+
+<footer><div class="container">
+  <p id="f-nome"></p>
+  <p>Imagens e plantas ilustrativas, sujeitas a alterações. Valores, metragens e condições de exemplo, sem caráter de proposta. Amostra de demonstração criada pela <a href="https://novapicks.website">novapicks</a>.</p>
+</div></footer>
+<a class="btn btn-ouro flutuante" id="zap" target="_blank" rel="noopener">WhatsApp</a>
+
+<script src="js/dados.js"></script>
+<script src="js/leads.js"></script>
+<script src="js/arte.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

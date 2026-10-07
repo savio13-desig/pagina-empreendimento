@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QR do stand · Aurora Park</title>
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+<div class="selo-demo">Amostra de demonstração · novapicks</div>
+<main class="container" style="padding-top:var(--e4);padding-bottom:var(--e4)">
+  <div class="nao-imprimir">
+    <h1 style="font-size:2rem">QR do stand de vendas</h1>
+    <p style="color:var(--texto-suave)">Imprima para o stand, outdoor, panfleto e vitrine da imobiliária. O QR abre a página do empreendimento com o tour 3D e o formulário de contato.</p>
+    <label for="base">Endereço da página do empreendimento</label><input type="text" id="base" inputmode="url">
+    <p><button class="btn btn-verde" id="imprimir" type="button" style="margin-top:var(--e2)">Imprimir placa</button></p>
+  </div>
+  <div class="placa" id="placa" aria-live="polite"></div>
+</main>
+<script src="vendor/qrcode.js"></script>
+<script src="js/dados.js"></script>
+<script>
+(function () {
+  "use strict";
+  var base = document.getElementById("base"), box = document.getElementById("placa"), E = window.EMPREENDIMENTO;
+  function esc(t) { return String(t).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  base.value = location.href.replace(/qr\.html.*$/, "index.html");
+  function desenhar() {
+    var q = qrcode(0, "M"); q.addData(base.value || "https://"); q.make();
+    box.innerHTML = '<p style="margin:0;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem">' + esc(E.status) + "</p><h2>" + esc(E.nome) + '</h2><p>' + esc(E.bairro) + '</p><div class="qrbox">' +
+      q.createSvgTag({ cellSize: 4, margin: 1, scalable: true }).replace("<svg", '<svg class="qr" role="img" aria-label="QR code do empreendimento"') + "</div><p><b>Aponte a câmera</b><br>Veja o tour 3D, as plantas e simule a parcela.</p>";
+  }
+  base.addEventListener("input", desenhar);
+  document.getElementById("imprimir").addEventListener("click", function () { window.print(); });
+  desenhar();
+})();
+</script>
+</body>
+</html>
